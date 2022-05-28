@@ -1,8 +1,6 @@
 const http = require('http')
 const fs = require('fs')
 
-
-
 const server = http.createServer(async (req, res) => {
   const page = req.url;
 
