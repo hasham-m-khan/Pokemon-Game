@@ -1,0 +1,1 @@
+GET https://api.pokemontcg.io/v2/cards/xy1-1

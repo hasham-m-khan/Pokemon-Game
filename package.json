@@ -1,0 +1,23 @@
+{
+  "name": "pokemon-game",
+  "version": "1.0.0",
+  "description": "A Pokemon Card Game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasham-m-khan/Pokemon-Game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasham-m-khan/Pokemon-Game/issues"
+  },
+  "homepage": "https://github.com/hasham-m-khan/Pokemon-Game#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
