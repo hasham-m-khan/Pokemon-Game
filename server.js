@@ -46,18 +46,10 @@ const server = http.createServer(async (req, res) => {
       ]
 
       let jsonObj = JSON.parse(content);
-      console.log(jsonObj);
 
-      player1Type = pokemonTypes[getRandomNum(0, 10)[0]]
-      let player1PokemonsList = jsonObj.data.filter(
-        pokemon => pokemon.types.includes(player1Type)
-      )
-
-      let player2PokemonsList = jsonObj.data.filter(
-        pokemon => pokemon.types.includes(pokemonTypes[getRandomNum(0, 10)])
-      )
-
-      sendResponse(res, player1PokemonsList, 'application/json', true)
+      player1Pokemons = getPokemons(jsonObj.data, pokemonTypes[getRandomNum(0, 10)[0]], 4)
+      player2Pokemons = getPokemons(jsonObj.data, pokemonTypes[getRandomNum(0, 10)[0]], 4)
+      sendResponse(res, {player1: player1Pokemons, player2: player2Pokemons}, 'application/json', true)
     })
     
   }
@@ -85,8 +77,8 @@ function getRandomNum (min, max, repeat=1, uniqueNums=false) {
   let i = 1;
 
   while (i <=repeat ) {
+    let randomNum = Math.floor(Math.random() * (max - min)) + min;
     if(uniqueNums) {
-      let randomNum = Math.floor(Math.random() * (max - min)) + min;
       if (!returnArr.includes(randomNum)) {
         returnArr.push(randomNum)
         i++
@@ -98,4 +90,13 @@ function getRandomNum (min, max, repeat=1, uniqueNums=false) {
   }
 
   return returnArr
+}
+
+function getPokemons (list, type, num) {
+  let typePokemons = list.filter(
+    pokemon => pokemon.types.includes(type)
+  )
+
+  let PokemonIndexes = getRandomNum(0, typePokemons.length - 1, num, true)
+  return PokemonIndexes.map(i => typePokemons[i])
 }
