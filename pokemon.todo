@@ -1,6 +1,11 @@
 *** Backend ***
+✔ Create a server @done(22-05-28 11:11)
+✔ get a random pokemon type for each player @done(22-05-28 11:12)
+✔ Get a list from the server side containing all pokemons for the pokemon type of each player @done(22-05-28 11:13)
 ☐ Update Pokemon API to return random 4 cards
 
 *** Frontend ***
+✔ Create a wireframe @done(22-05-28 11:11)
+✔ Export the HTML @done(22-05-28 11:11)
 ☐ Update tags to be sematically appropriate
 ☐ Implement front end logic
