@@ -64,7 +64,6 @@ server.listen(PORT, () => console.log(`Server is running on port: ${ PORT }`))
 /* 
 UTIL FUNCTIONS
 */
-
 function sendResponse (res, data, contentType, isJson = false) {
   res.writeHead(200, {  'Content-Type': contentType })
   res.end(isJson ? JSON.stringify(data) : data)
