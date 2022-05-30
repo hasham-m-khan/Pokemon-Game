@@ -1,9 +1,9 @@
-const http = require('http')
-const fs = require('fs')
+import http from 'http'
+import fs from 'fs'
 
 const server = http.createServer(async (req, res) => {
   const page = req.url;
-
+  
   // Get file extension & name
   let fileExt = page.includes('.') ? getExtension(page) : (page.includes('/api') ? '.json' : '.html')
   let filename = fileExt == '.html' ? (page === '/' ? 'index.html' : `${page.slice(1)}.html`) : page.slice(1)
@@ -53,7 +53,6 @@ const server = http.createServer(async (req, res) => {
     })
     
   }
-
 
 })
 
