@@ -21,10 +21,18 @@ app.get('/api/gameSession', (req, res) => {
   res.json(gameSession.player1)
 })
 
-app.get('/api/gameSession/:player/:pokeId', (req, res) => {
+app.put('/api/gameSession/:player/:pokeId', (req, res) => {
   console.log(req.params);
   gameSession[req.params.player].selectedCard = 
     gameSession[req.params.player].selectCard(req.params.id);
+
+  
+  res.json(gameSession[req.params.player].selectedCard)
+})
+
+app.get('/api/gameSession/:player/:pokeId', (req, res) => {
+  // console.log(req.params);
+  gameSession[req.params.player].selectCard(req.params.id);
   res.json(gameSession[req.params.player].selectedCard)
 })
 
