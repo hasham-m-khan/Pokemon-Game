@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500&display=swap" rel="stylesheet">
+
+				<title>Pokemon Battle</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<header>
+			<div>
+				<img src="img/pokemon_logo.png">
+				<h1>Battle</h1>
+			</div>
+		</header>	
+		<section class="titles">
+			<div class="playertitles">
+				<img src="img/pokemon_type_icons/player1.png">				
+			</div>
+			<div class="playertitles">				
+				<img src="img/pokemon_type_icons/player2.png">
+			</div>
+		</section>
+		<main class="grid-container-cards">
+			<% gameSession.player1.pokemons.forEach(pokemon => {%>
+			<div class="card">
+					<img  id="player1_<%= pokemon.id %>" class="smallCard" src="<%= pokemon.images.small %>" alt="cards">
+			</div>
+			<% }) %>
+			<div class="bgcard1">
+					<img id="p1" class="selectedCard" src="<%= gameSession.player1.selectedCard.images.large %>" alt="cards">
+			</div>
+			<div class="bgcard2">
+					<img id="p1" class="selectedCard" src="<%= gameSession.player2.selectedCard.images.large %>" alt="cards">
+			</div>
+			<% gameSession.player2.pokemons.forEach(pokemon => {%>
+				<div class="card">
+						<img id="player2_<%= pokemon.id %>" class="smallCard" src="<%= pokemon.images.small %>" alt="cards">
+				</div>
+				<% }) %>
+		</main>
+		<section class="buttons">
+			<button>Attack</button>
+			<button>Select Pokemon</button>
+		</section>
+		<section class="abilitiesGroup">
+			<section class="abilities1">
+				<title>
+					<h2 id="Turn1">
+						Player 1 turn
+					</h2>
+				</title>
+				<% gameSession.player1.selectedCard.attacks.forEach(attack => {%>
+				<div>
+					<img id="<%= attack.cost[0] %>" src="img/pokemon_type_icons/<%= attack.cost[0] %>.png">
+					<span><%= attack.name %></span>
+				</div>
+				<% }) %>
+			</section>	
+			<section class="abilities2">
+				<% gameSession.player2.selectedCard.attacks.forEach(attack => {%>
+					<div>
+						<img id="<%= attack.cost[0] %>" src="img/pokemon_type_icons/<%= attack.cost[0].toLowerCase() %>.png">
+						<span><%= attack.name %></span>
+					</div>
+				<% }) %>
+				</section>
+		</section>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>

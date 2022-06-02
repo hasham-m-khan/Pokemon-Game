@@ -1,9 +1,10 @@
+import http from 'http'
 import fs from 'fs'
 
-class API {
+export class API {
   contentType = 'application/json'
 
-  constructor(response, data) {
+  constructor(callback) {
     this.response = response
     this.data = data
   }

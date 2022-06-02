@@ -3,7 +3,7 @@ import path from 'path'
 import { Player } from './player.js'
 import { getRandomNum } from './utils.js'
 
-class GameSession {
+export class GameSession {
 
   pokemonTypes = [
     "Colorless",
@@ -48,5 +48,5 @@ class GameSession {
 
 }
 
-let gameSession = new GameSession(path.join(process.cwd(),'../pokemon.json'))
+let gameSession = new GameSession(path.join(process.cwd(),'pokemon.json'))
 gameSession.attackPokemon(gameSession.player1, gameSession.player1.pokemons[0].id, 30)

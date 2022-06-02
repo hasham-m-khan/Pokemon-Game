@@ -7,6 +7,7 @@ export class Player {
     this.totalHP = this.getPlayertotalHP()
     this.currentHP = this.totalHP
     this.setBaseAttack()
+    this.selectedCard = pokemons[pokemons.length-1]
   }
 
   getPlayertotalHP () {
@@ -30,5 +31,9 @@ export class Player {
         attack.damage == '' ? { ...attack, damage: getRandomNum(15, 25, 1).toString() } : attack 
       )
     }))
+  }
+
+  selectCard (id) {
+    this.selectedCard = this.pokemons.filter(pokemon => pokemon.id === id)
   }
 }
